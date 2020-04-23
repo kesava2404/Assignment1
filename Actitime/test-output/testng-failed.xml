@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.Actitime.test.CreateCustomer">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="logout"/>
+          <include name="testCreateCustomer"/>
+          <include name="openbrowser"/>
+          <include name="loginpage"/>
+        </methods>
+      </class> <!-- com.Actitime.test.CreateCustomer -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
