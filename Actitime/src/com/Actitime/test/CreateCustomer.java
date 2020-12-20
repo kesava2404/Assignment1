@@ -3,18 +3,22 @@ package com.Actitime.test;
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.Actitime.generics.BaseClass;
 import com.Actitime.pom.HomePage;
+import com.Actitime.pom.LoginPage;
 import com.Actitime.pom.TaskPage;
 @Listeners(com.Actitime.generics.ListenersImplementation.class)
 public class CreateCustomer extends BaseClass{
-	@Test
+	@Test(groups= {"smoketest","regressiontest"})
 	public void testCreateCustomer() throws EncryptedDocumentException, IOException, InterruptedException {
-		String expected = f.getexceldata("./data/properties.xlsx", "customer sheet", 1, 2);
+	//	JavascriptExecutor js=(JavascriptExecutor)driver;
+		//js.executeScript(arg0, arg1);
+		String expected = f.getexceldata("./data/properties.xlsx", 1, 2);
 	
 		HomePage hm= new HomePage(driver);
 		hm.clickontasktab();
@@ -28,6 +32,8 @@ public class CreateCustomer extends BaseClass{
 		ts.getSelectcustomer().click();
 		ts.getClickourcompany().click();
 		ts.getCreatecustomer().click();
+		/*LoginPage lg=new LoginPage(driver);
+		lg.setlogin(123, 123);*/
 		Thread.sleep(5000);
 	String actualresult = ts.getAtual().getText();
 		Assert.assertEquals(actualresult,expected ); 

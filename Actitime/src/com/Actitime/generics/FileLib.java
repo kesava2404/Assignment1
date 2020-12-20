@@ -17,10 +17,12 @@ public class FileLib {
 		return  value;
 		
 	}
-	public String getexceldata(String path,String sheetname,int row,int cell) throws EncryptedDocumentException, IOException {
+	public String getexceldata(String path,int row,int cell) throws EncryptedDocumentException, IOException {
 		FileInputStream fis=new FileInputStream(path);
 		Workbook wb=WorkbookFactory.create(fis);
-	 String data = wb.getSheet(sheetname).getRow(row).getCell(cell).getStringCellValue();
+	
+	  String data = wb.getSheet("registerpage").getRow(row).getCell(cell).toString();
+	
 		return data;
 		
 	}
